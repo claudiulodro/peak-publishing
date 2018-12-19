@@ -15,12 +15,13 @@
 
 	<footer id="colophon" class="site-footer">
 		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'peak-publishing' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'peak-publishing' ), 'WordPress' );
+			<?php
+			$peak_publishing_description = get_bloginfo( 'description', 'display' );
+			if ( $peak_publishing_description || is_customize_preview() ) :
 				?>
-			</a>
+				<p class="site-description"><?php echo $peak_publishing_description; /* WPCS: xss ok. */ ?></p>
+			<?php endif; 
+			?>
 			<span class="sep"> | </span>
 				<?php
 				/* translators: 1: Theme name, 2: Theme author. */

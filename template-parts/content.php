@@ -1,59 +1,38 @@
-<?php
-/**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Peak_Publishing
- */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<article id="post-<?php the_ID(); ?>" <?php post_class( is_active_sidebar( 'single' ) ? array( 'has-sidebar' ) : array( 'no-sidebar' ) ); ?>>
+	<div class="title">
 		<?php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( '<h1 class="title">', '</h1>' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( '<h2 class="title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
 		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				peak_publishing_posted_on();
-				peak_publishing_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
+		?>
+	</div>
 
 	<?php peak_publishing_post_thumbnail(); ?>
 
-	<div class="entry-content">
+	<div class="content">
 		<?php
-		the_content( sprintf(
-			wp_kses(
-				/* translators: %s: Name of current post. Only visible to screen readers */
-				__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'peak-publishing' ),
-				array(
-					'span' => array(
-						'class' => array(),
-					),
-				)
-			),
-			get_the_title()
-		) );
+		the_content();
 
 		wp_link_pages( array(
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'peak-publishing' ),
 			'after'  => '</div>',
 		) );
 		?>
-	</div><!-- .entry-content -->
+	</div>
 
-	<footer class="entry-footer">
+	<?php
+	if ( is_active_sidebar( 'single' ) ) :
+		get_sidebar( 'single' );
+	endif;
+	?>
+
+	<footer class="footer">
+		<?php if ( 'post' === get_post_type() ) : ?>
+			<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
+		<?php endif; ?>
+
 		<?php peak_publishing_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</footer>
+</article>

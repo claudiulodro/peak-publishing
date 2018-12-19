@@ -1,5 +1,5 @@
 <?php
-
+global $wp_query;
 ?>
 <div class="mem-block small">
 	<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail' ?>">
@@ -12,7 +12,7 @@
 			</div>
 	</div>
 
-	<?php if ( have_posts() ): the_post() ?>
+	<?php if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ): the_post() ?>
 		<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail' ?>">
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'mem-small' ) ?></a></div>
@@ -24,7 +24,7 @@
 		</div>
 	<?php endif ?>
 
-	<?php if ( have_posts() ): the_post() ?>
+	<?php if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ): the_post() ?>
 		<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail' ?>">
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'mem-small' ) ?></a></div>
@@ -36,7 +36,7 @@
 		</div>
 	<?php endif ?>
 
-	<?php if ( have_posts() ): the_post() ?>
+	<?php if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ): the_post() ?>
 		<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail' ?>">
 			<?php if ( has_post_thumbnail() ): ?>
 				<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'mem-small' ) ?></a></div>

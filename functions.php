@@ -49,6 +49,8 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 		add_image_size( 'river-full', 556, 340, true );
 		add_image_size( 'river-small', 326, 217, true );
 
+		add_image_size( 'single', 1172, 600, true );
+
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'peak-publishing' ),
@@ -112,9 +114,9 @@ add_action( 'after_setup_theme', 'peak_publishing_content_width', 0 );
  */
 function peak_publishing_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'peak-publishing' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'peak-publishing' ),
+		'name'          => esc_html__( 'Article', 'peak-publishing' ),
+		'id'            => 'single',
+		'description'   => esc_html__( 'Sidebar displayed on single posts & pages.', 'peak-publishing' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -143,11 +145,17 @@ add_action( 'wp_enqueue_scripts', 'peak_publishing_scripts' );
 function peak_publishing_excerpt_length( $length = 55 ) {
 	return 30;
 }
-add_filter( 'excerpt_length', 'peak_publishing_excerpt_length' );
+//add_filter( 'excerpt_length', 'peak_publishing_excerpt_length' );
 
 function peak_publishing_shorten_long_excerpts( $exerpt ) {
 	return wp_trim_words( $exerpt, peak_publishing_excerpt_length() );
 }
+
+function peak_publishing_excerpt_more( $more ) {
+	return '&nbsp;&hellip;';
+}
+add_filter( 'excerpt_more', 'peak_publishing_excerpt_more' );
+
 /**
  * Implement the Custom Header feature.
  */
