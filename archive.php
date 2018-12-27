@@ -1,4 +1,6 @@
 <?php
+
+$queried_object = get_queried_object();
 get_header();
 ?>
 
@@ -13,12 +15,13 @@ get_header();
 				?>
 			</header>
 
+			<?php if ( isset( $queried_object, $queried_object->taxonomy ) && is_active_sidebar( 'taxonomy' ) ):
+				get_sidebar( 'taxonomy' );
+			endif ?>
+
 			<?php
 			while ( have_posts() ) :
-				the_post();
-
 				get_template_part( 'template-parts/river-block-small', get_post_type() );
-
 			endwhile;
 
 			the_posts_navigation();

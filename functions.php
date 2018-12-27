@@ -1,20 +1,6 @@
 <?php
-/**
- * Peak Publishing functions and definitions
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Peak_Publishing
- */
 
 if ( ! function_exists( 'peak_publishing_setup' ) ) :
-	/**
-	 * Sets up theme defaults and registers support for various WordPress features.
-	 *
-	 * Note that this function is hooked into the after_setup_theme hook, which
-	 * runs before the init hook. The init hook is too late for some features, such
-	 * as indicating support for post thumbnails.
-	 */
 	function peak_publishing_setup() {
 		/*
 		 * Make theme available for translation.
@@ -107,6 +93,19 @@ function peak_publishing_content_width() {
 }
 add_action( 'after_setup_theme', 'peak_publishing_content_width', 0 );
 
+function peak_publishing_admin_bar_adjust() {
+	if ( is_admin_bar_showing() ):
+		?>
+		<style>
+			.logged-in header {
+				top: 32px;
+			}
+		</style>
+		<?php
+	endif;
+}
+add_action( 'wp_head', 'peak_publishing_admin_bar_adjust' );
+
 /**
  * Register widget area.
  *
@@ -117,6 +116,26 @@ function peak_publishing_widgets_init() {
 		'name'          => esc_html__( 'Article', 'peak-publishing' ),
 		'id'            => 'single',
 		'description'   => esc_html__( 'Sidebar displayed on single posts & pages.', 'peak-publishing' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Homepage MEM', 'peak-publishing' ),
+		'id'            => 'homepage',
+		'description'   => esc_html__( 'The homepage MEM', 'peak-publishing' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => esc_html__( 'Taxonomy MEM', 'peak-publishing' ),
+		'id'            => 'taxonomy',
+		'description'   => esc_html__( 'The taxonomies MEM.', 'peak-publishing' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -156,10 +175,7 @@ function peak_publishing_excerpt_more( $more ) {
 }
 add_filter( 'excerpt_more', 'peak_publishing_excerpt_more' );
 
-/**
- * Implement the Custom Header feature.
- */
-require get_template_directory() . '/inc/custom-header.php';
+require get_template_directory() . '/inc/widgets.php';
 
 /**
  * Custom template tags for this theme.

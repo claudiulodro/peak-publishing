@@ -64,9 +64,6 @@ header.site-header {
         header.site-header #primary-menu .menu-item-has-children .sub-menu li {
           margin: .5em; }
 
-.logged-in header {
-  top: 32px; }
-
 #content {
   max-width: 1300px;
   margin-left: auto;
@@ -81,6 +78,8 @@ header.site-header {
   justify-content: space-between;
   margin-top: 6em;
   color: #676767; }
+  #main header {
+    width: 100%; }
 
 .title {
   font-weight: bold; }
@@ -102,6 +101,11 @@ input[type="submit"] {
 
 textarea {
   border: 1px solid rgba(0, 0, 0, 0.1); }
+
+a {
+  color: rgba(0, 0, 0, 0.4); }
+  a:visited {
+    color: rgba(0, 0, 0, 0.4); }
 
 /**
  * Archive styles.
@@ -211,6 +215,27 @@ textarea {
     .river-block.small .byline {
       margin-top: 1em; }
 
+.widget {
+  width: 33.33%;
+  padding: 2em;
+  padding-top: 0;
+  margin: 0; }
+  .widget ul {
+    margin-left: 0; }
+  .widget ul {
+    padding-left: 1em; }
+  .widget .widget-title {
+    font-size: 1.25em;
+    margin: 0;
+    margin-bottom: 1em; }
+  .widget.widget_search .search-form {
+    display: flex; }
+  .widget.widget_search .search-field {
+    line-height: 2em;
+    border-right: none; }
+  .widget.widget_search .search-submit {
+    padding: .5em; }
+
 .navigation {
   width: 100%;
   margin: 2em; }
@@ -270,24 +295,9 @@ textarea {
 #sidebar-single {
   padding-left: 2em; }
   #sidebar-single .widget {
-    margin-bottom: 2em; }
-    #sidebar-single .widget ul {
-      margin-left: 0; }
-    #sidebar-single .widget ul {
-      padding-left: 1em; }
-    #sidebar-single .widget .widget-title {
-      font-size: 1.25em;
-      margin: 0;
-      margin-bottom: 1em; }
-  #sidebar-single .widget_search .search-form {
-    display: flex; }
-  #sidebar-single .widget_search .search-field {
-    line-height: 2em;
-    border-right: none; }
-  #sidebar-single .widget_search .search-submit {
-    padding: .5em; }
-    #sidebar-single .widget_search .search-submit::placeholder {
-      display: none; }
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%; }
 
 /**
  * Block styles.

@@ -19,30 +19,13 @@ get_header();
 				<?php
 			endif;
 
-			// Temporary template order.
-			// @todo make this customizable and dynamic.
-			$templates = array(
-				'mem-block-full',
-				'mem-block-full',
-				'mem-block-large',
-				'mem-block-small',
-				'mem-block-spacer',
-				'river-block-full',
-				'river-block-full',
-				'river-block-small',
-				'mem-block-spacer',
-			);
-			$template_index = 0;
+			if ( is_active_sidebar( 'single' ) ) :
+				get_sidebar( 'homepage' );
+			endif;
+
 			/* Start the Loop */
 			while ( have_posts() ) :
-				the_post();
-
-				if ( ! is_paged() && isset( $templates[ $template_index ] ) ):
-					get_template_part( 'template-parts/' . $templates[ $template_index ], get_post_type() );
-					++$template_index;
-				else:
-					get_template_part( 'template-parts/river-block-full', get_post_type() );
-				endif;
+				get_template_part( 'template-parts/river-block-full', get_post_type() );
 			endwhile;
 
 			the_posts_navigation( array( 'prev_text' => 'Older', 'next_text' => 'Newer' ) );
@@ -54,8 +37,8 @@ get_header();
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
 get_footer();
