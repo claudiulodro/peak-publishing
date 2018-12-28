@@ -6,7 +6,7 @@ global $wp_query;
 		<div class="article">
 			<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'river-small' ) ?></a></div>
 			<div class="title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
-			<div class="excerpt"><?php the_excerpt() ?></div>
+			<div class="excerpt"><a href="<?php the_permalink() ?>"><?php the_excerpt() ?></a></div>
 			<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
 		</div>
 	<?php endif ?>
@@ -15,7 +15,7 @@ global $wp_query;
 		<div class="article">
 			<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'river-small' ) ?></a></div>
 			<div class="title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
-			<div class="excerpt"><?php the_excerpt() ?></div>
+			<div class="excerpt"><a href="<?php the_permalink() ?>"><?php the_excerpt() ?></a></div>
 			<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
 		</div>
 	<?php endif ?>
@@ -24,7 +24,7 @@ global $wp_query;
 		<div class="article">
 			<div class="thumbnail"><a href="<?php the_permalink() ?>"><?php the_post_thumbnail( 'river-small' ) ?></a></div>
 			<div class="title"><a href="<?php the_permalink() ?>"><?php the_title() ?></a></div>
-			<div class="excerpt"><?php the_excerpt() ?></div>
+			<div class="excerpt"><a href="<?php the_permalink() ?>"><?php the_excerpt() ?></a></div>
 			<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
 		</div>
 	<?php endif ?>

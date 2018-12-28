@@ -19,16 +19,16 @@ get_header();
 				<?php
 			endif;
 
-			if ( is_active_sidebar( 'single' ) ) :
+			if ( ! is_paged() && is_active_sidebar( 'single' ) ) :
 				get_sidebar( 'homepage' );
 			endif;
 
 			/* Start the Loop */
 			while ( have_posts() ) :
-				get_template_part( 'template-parts/river-block-full', get_post_type() );
+				peak_publishing_river_template();
 			endwhile;
 
-			the_posts_navigation( array( 'prev_text' => 'Older', 'next_text' => 'Newer' ) );
+			the_posts_navigation( array( 'prev_text' => 'Previous', 'next_text' => 'Next' ) );
 
 		else :
 

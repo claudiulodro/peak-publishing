@@ -56,7 +56,7 @@ function peak_publishing_customize_register( $wp_customize ) {
 			$wp_customize, 
 			'nav_secondary_text_color', 
 			array(
-				'label'      => __( 'Header Background Color', 'peak_publishing' ),
+				'label'      => __( 'Header Secondary Text Color', 'peak_publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_nav_secondary_text_color',
 			)
@@ -146,6 +146,79 @@ function peak_publishing_customize_register( $wp_customize ) {
 	}
 }
 add_action( 'customize_register', 'peak_publishing_customize_register' );
+
+function peak_publishing_customizer_styles() {
+	//var_dump( get_background_color() ); die();
+	$bg_color = sanitize_hex_color( '#' . get_background_color() );
+	$nav_bg_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_bg_color', '#ffffff' ) );
+	$nav_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_text_color', '#676767' ) );
+	$nav_secondary_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_secondary_text_color', '#cccccc' ) );
+	$text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_text_color', '#676767' ) );
+	$text_secondary_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_secondary_text_color', '#cccccc' ) );
+	$font_style = get_theme_mod( 'peak_publishing_font_style', 'serif' );
+	?>
+	<style>
+		html {
+			font-family: <?php echo 'serif' === $font_style ? "'Charter', serif" : "'OpenSans', sans-serif" ?>;
+		}
+		header.site-header {
+			background-color: <?php echo $nav_bg_color ?>;
+		}
+
+		header.site-header #primary-menu .menu-item-has-children .sub-menu {
+			background-color: <?php echo $nav_bg_color ?>;
+			border: 1px solid <?php echo $nav_secondary_text_color ?>;
+		}
+
+		header.site-header .site-title {
+			color: <?php echo $nav_text_color ?>;
+		}
+
+		#primary-menu a {
+			color: <?php echo $nav_secondary_text_color ?>;
+		}
+
+		#main {
+			color: <?php echo $text_color ?>;
+		}
+
+		.search-field {
+			color: <?php echo $text_color ?>!important;
+		}
+
+		.byline, a, a:visited, footer, input[type="submit"] {
+			color: <?php echo $text_secondary_color ?>;
+		}
+
+		.mem-block a, .river-block a {
+			color: <?php echo $text_color ?>;
+		}
+
+		input[type="submit"], input[type="search"], textarea, .mem-block.full.no-thumbnail, .mem-block.large.no-thumbnail {
+			border: 1px solid <?php echo $text_secondary_color ?>;
+		}
+
+		.mem-block.full.has-thumbnail .article-info, input[type="submit"], input[type="search"] {
+			background-color: <?php echo $bg_color ?>;
+		}
+
+		hr {
+			background-color: <?php echo $text_secondary_color ?>;
+		}
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'peak_publishing_customizer_styles', 99 );
+
+function peak_publishing_river_template() {
+	$style = get_theme_mod( 'peak_publishing_river_style', 'large' );
+
+	if ( 'large' === $style ) {
+		get_template_part( 'template-parts/river-block-full', get_post_type() );
+	} else {
+		get_template_part( 'template-parts/river-block-small', get_post_type() );
+	}
+}
 
 /**
  * Render the site title for the selective refresh partial.

@@ -27,10 +27,14 @@
 	<header id="masthead" class="site-header">
 		<div class="header-contents">
 			<div class="site-branding">
-				<?php
-				the_custom_logo(); ?>
-				<div class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></div>
-			</div><!-- .site-branding -->
+				<?php if ( has_custom_logo() ): ?>
+					<?php the_custom_logo(); ?>
+				<?php else: ?>
+					<div class="site-title">
+						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+					</div>
+				<?php endif ?>
+			</div>
 
 			<nav id="site-navigation" class="main-navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'peak-publishing' ); ?></button>

@@ -15,16 +15,16 @@ get_header();
 				?>
 			</header>
 
-			<?php if ( isset( $queried_object, $queried_object->taxonomy ) && is_active_sidebar( 'taxonomy' ) ):
+			<?php if ( ! is_paged() && isset( $queried_object, $queried_object->taxonomy ) && is_active_sidebar( 'taxonomy' ) ):
 				get_sidebar( 'taxonomy' );
 			endif ?>
 
 			<?php
 			while ( have_posts() ) :
-				get_template_part( 'template-parts/river-block-small', get_post_type() );
+				peak_publishing_river_template();
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_navigation( array( 'prev_text' => 'Previous', 'next_text' => 'Next' ) );
 
 		else :
 
@@ -33,8 +33,8 @@ get_header();
 		endif;
 		?>
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
+		</main>
+	</div>
 
 <?php
 get_footer();

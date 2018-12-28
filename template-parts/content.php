@@ -19,6 +19,20 @@
 			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'peak-publishing' ),
 			'after'  => '</div>',
 		) );
+		
+		?>
+		<footer class="footer">
+			<?php if ( 'post' === get_post_type() ) : ?>
+				<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
+			<?php endif; ?>
+
+			<?php peak_publishing_entry_footer(); ?>
+		</footer>
+
+		<?php
+		if ( comments_open() || get_comments_number() ) :
+			comments_template();
+		endif;
 		?>
 	</div>
 
@@ -27,12 +41,4 @@
 		get_sidebar( 'single' );
 	endif;
 	?>
-
-	<footer class="footer">
-		<?php if ( 'post' === get_post_type() ) : ?>
-			<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
-		<?php endif; ?>
-
-		<?php peak_publishing_entry_footer(); ?>
-	</footer>
 </article>

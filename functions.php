@@ -33,7 +33,7 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 		add_image_size( 'mem-small', 327, 175, true );
 
 		add_image_size( 'river-full', 556, 340, true );
-		add_image_size( 'river-small', 326, 217, true );
+		add_image_size( 'river-small', 350, 217, true );
 
 		add_image_size( 'single', 1172, 600, true );
 
@@ -160,15 +160,6 @@ function peak_publishing_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'peak_publishing_scripts' );
-
-function peak_publishing_excerpt_length( $length = 55 ) {
-	return 30;
-}
-//add_filter( 'excerpt_length', 'peak_publishing_excerpt_length' );
-
-function peak_publishing_shorten_long_excerpts( $exerpt ) {
-	return wp_trim_words( $exerpt, peak_publishing_excerpt_length() );
-}
 
 function peak_publishing_excerpt_more( $more ) {
 	return '&nbsp;&hellip;';

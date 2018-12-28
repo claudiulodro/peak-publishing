@@ -1,33 +1,47 @@
-$light: rgba(0,0,0,.4);
-$border: 1px solid rgba(0,0,0,.1);
-
 @font-face {
-  font-family: 'Charter';
-  src: url( 'charter/webfonts/charter_regular-webfont.woff' ) format('woff'),
-  url( 'charter/webfonts/charter_regular-webfont.ttf' ) format('truetype');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'Charter';
+	src: url( 'charter/webfonts/charter_regular-webfont.woff' ) format('woff'),
+	url( 'charter/webfonts/charter_regular-webfont.ttf' ) format('truetype');
+	font-weight: normal;
+	font-style: normal;
 }  
 
 @font-face {
-  font-family: 'Charter';
-  src: url( 'charter/webfonts/charter_bold-webfont.woff' ) format('woff'),
-  url( 'charter/webfonts/charter_bold-webfont.ttf' ) format('truetype');
-  font-weight: bold;
-  font-style: normal;
+	font-family: 'Charter';
+	src: url( 'charter/webfonts/charter_bold-webfont.woff' ) format('woff'),
+	url( 'charter/webfonts/charter_bold-webfont.ttf' ) format('truetype');
+	font-weight: bold;
+	font-style: normal;
 }  
 
 @font-face {
-  font-family: 'Charter';
-  src: url( 'charter/webfonts/charter_italic-webfont.woff' ) format('woff'),
-  url( 'charter/webfonts/charter_italic-webfont.ttf' ) format('truetype');
-  font-weight: normal;
-  font-style: italic;
+	font-family: 'Charter';
+	src: url( 'charter/webfonts/charter_italic-webfont.woff' ) format('woff'),
+	url( 'charter/webfonts/charter_italic-webfont.ttf' ) format('truetype');
+	font-weight: normal;
+	font-style: italic;
 }  
 
-html {
-	font-family: 'Charter', serif;
-}
+@font-face {
+	font-family: 'OpenSans';
+	src: url( 'open-sans/OpenSans-Regular.ttf' ) format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}  
+
+@font-face {
+	font-family: 'OpenSans';
+	src: url( 'open-sans/OpenSans-Bold.ttf' ) format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}  
+
+@font-face {
+	font-family: 'OpenSans';
+	src: url( 'open-sans/OpenSans-Italic.ttf' ) format('truetype');
+	font-weight: normal;
+	font-style: italic;
+}  
 
 header.site-header {
 	position: fixed;
@@ -35,8 +49,8 @@ header.site-header {
 	top: 0;
 	left: 0;
 	background-color: white;
-	z-index: 1;
-	box-shadow: 0 2px 12px 0 rgba(0,0,0,.05);
+	z-index: 2;
+	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.2);
 	height: 4em;
 
 	.header-contents {
@@ -60,6 +74,14 @@ header.site-header {
 		}
 	}
 
+	.custom-logo-link {
+		img {
+			height: 4em;
+			width: auto;
+			margin-top: -1em;
+		}
+	}
+
 	#primary-menu {
 		position: absolute;
 		top: 1.25em;
@@ -68,10 +90,6 @@ header.site-header {
 
 		li {
 			margin-left: 2em;
-		}
-
-		a {
-			color: $light;
 		}
 
 		.menu-item-has-children {
@@ -87,7 +105,6 @@ header.site-header {
 				background-color: white;
 				margin-left: -.5em;
 				box-shadow: none;
-				border: $border;
 				padding: .5em;
 
 				li {
@@ -112,7 +129,6 @@ header.site-header {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-top: 6em;
-	color: #676767;
 
 	header {
 		width: 100%;
@@ -123,36 +139,11 @@ header.site-header {
 	font-weight: bold;
 }
 
-.byline {
-	color: $light;
-}
-
-hr {
-	background-color: rgba(0,0,0,.1);
-}
-
 input[type="submit"] {
 	background-color: #FFFFFF;
 	font-size: 1.05em;
 	padding: 1em;
-	border: $border;
 	cursor: pointer;
-
-	&:hover {
-		border: 1px solid #676767;
-	}
-}
-
-textarea {
-	border: $border;
-}
-
-a {
-	color: $light;
-
-	&:visited {
-		color: $light;
-	}
 }
 
 /**
@@ -174,14 +165,13 @@ a {
 
 	&.full {
 		width: 100%;
+		margin-bottom: 2em;
 
 		.title {
 			font-size: 2em;
 		}
 
 		&.no-thumbnail {
-			border: $border;
-
 			.article-info {
 				padding: 2em;
 			}
@@ -238,10 +228,6 @@ a {
 		.article-info {
 			padding: 2em;
 		}
-
-		&.no-thumbnail {
-			border: $border;
-		}
 	}
 
 	&.small {
@@ -289,7 +275,7 @@ a {
 
 	&.full {
 		width: 100%;
-		padding: 2em;
+		padding-bottom: 2em;
 
 		.title {
 			font-size: 2em;
@@ -327,7 +313,13 @@ a {
 
 		.article {
 			width: 33.33%;
-			padding: 2em;
+			padding-bottom: 2em;
+			box-sizing: content-box;
+
+			&:nth-of-type(2) {
+				padding-left: 4em;
+				padding-right: 4em;
+			}
 		}
 
 		.thumbnail {
@@ -346,6 +338,24 @@ a {
 			margin-top: 1em;
 		}
 	}
+}
+
+.on-page-search {
+	width: 100%;
+	font-size: 16px!important;
+	margin-bottom: 2em;
+
+	.search-field {
+		line-height: 2em;
+		border-right: none;
+		padding: .25em;
+	}
+
+	.search-submit {
+		padding: .75em;
+		margin-left: -2px;
+	}
+
 }
 
 .widget {
@@ -387,7 +397,8 @@ a {
 
 .navigation {
 	width: 100%;
-	margin: 2em;
+	margin-top: 2em;
+	margin-bottom: 2em;
 
 	.nav-previous {
 		float: right;
@@ -401,7 +412,6 @@ a {
 
 	a {
 		text-decoration: none;
-		color: $light;
 		font-size: 1.25em;
 	}
 }
@@ -420,8 +430,6 @@ a {
  	}
 
  	footer {
- 		color: $light;
-
  		a {
  			color: inherit;
  		}

@@ -19,7 +19,7 @@
 			$peak_publishing_description = get_bloginfo( 'description', 'display' );
 			if ( $peak_publishing_description || is_customize_preview() ) :
 				?>
-				<p class="site-description"><?php echo $peak_publishing_description; /* WPCS: xss ok. */ ?></p>
+				<p class="site-description"><?php bloginfo( 'name' ); ?> &mdash; <?php echo $peak_publishing_description ?></p>
 			<?php endif; 
 			?>
 			<span class="sep"> | </span>
