@@ -114,6 +114,26 @@ function peak_publishing_customize_register( $wp_customize ) {
 		),
 	) );
 
+	// Nav customization.
+	$wp_customize->add_setting( 'peak_publishing_nav_style' , array(
+		'default'   => 'sticky',
+	) );
+	$wp_customize->add_section( 'peak_publishing_nav_style', array(
+		'title' => __( 'Nav Style', 'peak_publishing' ),
+		'priority' => 58,
+	) );
+	$wp_customize->add_control( 'peak_publishing_nav_style', array(
+		'label' => __( 'Nav Style', 'peak_publishing' ),
+		'section' => 'peak_publishing_nav_style',
+		'type' => 'radio',
+		'settings' => 'peak_publishing_nav_style',
+		'choices' => array( 
+			'sticky' => __( 'Sticky', 'peak_publishing' ),
+			'static' => __( 'Static', 'peak_publishing' ),
+		),
+	) );
+
+
 	// River customization.
 	$wp_customize->add_setting( 'peak_publishing_river_style' , array(
 		'default'   => 'large',
@@ -186,7 +206,7 @@ function peak_publishing_customizer_styles() {
 			color: <?php echo $text_color ?>!important;
 		}
 
-		.byline, a, a:visited, footer, input[type="submit"] {
+		.byline, a, a:visited, a:hover, footer, input[type="submit"] {
 			color: <?php echo $text_secondary_color ?>;
 		}
 
@@ -209,6 +229,13 @@ function peak_publishing_customizer_styles() {
 	<?php
 }
 add_action( 'wp_head', 'peak_publishing_customizer_styles', 99 );
+
+function peak_publishing_nav_classes( $classes ) {
+	$nav_style = get_theme_mod( 'peak_publishing_nav_style', 'sticky' );
+	$classes[] = 'sticky' === $nav_style ? 'sticky-nav' : 'static-nav';
+	return $classes;
+}
+add_filter( 'body_class', 'peak_publishing_nav_classes' );
 
 function peak_publishing_river_template() {
 	$style = get_theme_mod( 'peak_publishing_river_style', 'large' );

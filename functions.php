@@ -37,9 +37,9 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 
 		add_image_size( 'single', 1172, 600, true );
 
-		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
 			'menu-1' => esc_html__( 'Primary', 'peak-publishing' ),
+			'menu-2' => esc_html__( 'Footer', 'peak-publishing' ),
 		) );
 
 		/*
@@ -97,7 +97,7 @@ function peak_publishing_admin_bar_adjust() {
 	if ( is_admin_bar_showing() ):
 		?>
 		<style>
-			.logged-in header {
+			.sticky-nav header.site-header {
 				top: 32px;
 			}
 		</style>
