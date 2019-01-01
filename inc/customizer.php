@@ -181,7 +181,7 @@ function peak_publishing_customizer_styles() {
 		html {
 			font-family: <?php echo 'serif' === $font_style ? "'Charter', serif" : "'OpenSans', sans-serif" ?>;
 		}
-		header.site-header {
+		header.site-header, header.site-header #primary-menu {
 			background-color: <?php echo $nav_bg_color ?>;
 		}
 
@@ -194,7 +194,7 @@ function peak_publishing_customizer_styles() {
 			color: <?php echo $nav_text_color ?>;
 		}
 
-		#primary-menu a {
+		#primary-menu a, .menu-toggle {
 			color: <?php echo $nav_secondary_text_color ?>;
 		}
 

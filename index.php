@@ -19,7 +19,7 @@ get_header();
 				<?php
 			endif;
 
-			if ( ! is_paged() && is_active_sidebar( 'single' ) ) :
+			if ( ! is_paged() && is_active_sidebar( 'homepage' ) ) :
 				get_sidebar( 'homepage' );
 			endif;
 

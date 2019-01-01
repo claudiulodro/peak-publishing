@@ -1,6 +1,4 @@
 /**
- * File navigation.js.
- *
  * Handles toggling the navigation menu for small screens and enables TAB key
  * navigation support for dropdown menus.
  */
@@ -35,10 +33,12 @@
 			container.className = container.className.replace( ' toggled', '' );
 			button.setAttribute( 'aria-expanded', 'false' );
 			menu.setAttribute( 'aria-expanded', 'false' );
+			button.innerHTML = '&#9776;';
 		} else {
 			container.className += ' toggled';
 			button.setAttribute( 'aria-expanded', 'true' );
 			menu.setAttribute( 'aria-expanded', 'true' );
+			button.innerHTML = '&#x2715;';
 		}
 	};
 
