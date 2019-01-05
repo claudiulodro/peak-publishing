@@ -1,6 +1,8 @@
 <?php
 /**
- * The main template file
+ * The main template file.
+ *
+ * @package Peak_Publishing
  */
 
 get_header();
@@ -19,7 +21,7 @@ get_header();
 				<?php
 			endif;
 
-			if ( ! is_paged() && is_active_sidebar( 'homepage' ) ) :
+			if ( ! is_paged() ) :
 				get_sidebar( 'homepage' );
 			endif;
 
@@ -28,7 +30,12 @@ get_header();
 				peak_publishing_river_template();
 			endwhile;
 
-			the_posts_navigation( array( 'prev_text' => 'Previous', 'next_text' => 'Next' ) );
+			the_posts_navigation(
+				array(
+					'prev_text' => 'Previous',
+					'next_text' => 'Next',
+				)
+			);
 
 		else :
 

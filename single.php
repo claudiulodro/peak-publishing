@@ -1,4 +1,10 @@
 <?php
+/**
+ * The template for displaying singles.
+ *
+ * @package Peak_Publishing
+ */
+
 get_header();
 ?>
 

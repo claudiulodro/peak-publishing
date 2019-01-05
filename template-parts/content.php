@@ -1,3 +1,11 @@
+<?php
+/**
+ * The template for a post/page's content.
+ *
+ * @package Peak_Publishing
+ */
+
+?>
 <article id="post-<?php the_ID(); ?>" <?php post_class( is_active_sidebar( 'single' ) ? array( 'has-sidebar' ) : array( 'no-sidebar' ) ); ?>>
 	<div class="title">
 		<?php
@@ -15,15 +23,17 @@
 		<?php
 		the_content();
 
-		wp_link_pages( array(
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'peak-publishing' ),
-			'after'  => '</div>',
-		) );
-		
+		wp_link_pages(
+			array(
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'peak-publishing' ),
+				'after'  => '</div>',
+			)
+		);
+
 		?>
 		<footer class="footer">
 			<?php if ( 'post' === get_post_type() ) : ?>
-				<div class="byline">By <?php the_author() ?> &mdash; <?php the_time('F j, Y') ?></div>
+				<div class="byline">By <?php the_author(); ?> &mdash; <?php the_time( 'F j, Y' ); ?></div>
 			<?php endif; ?>
 
 			<?php peak_publishing_entry_footer(); ?>

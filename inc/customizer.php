@@ -16,220 +16,283 @@ function peak_publishing_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 
 	// Nav background color.
-	$wp_customize->add_setting( 'peak_publishing_nav_bg_color', array(
-		'default' => '#ffffff'
-	) );
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-			$wp_customize, 
-			'nav_bg_color', 
+	$wp_customize->add_setting(
+		'peak_publishing_nav_bg_color',
+		array(
+			'default' => '#ffffff',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'nav_bg_color',
 			array(
-				'label'      => __( 'Header Background Color', 'peak_publishing' ),
+				'label'      => __( 'Header Background Color', 'peak-publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_nav_bg_color',
 			)
-		) 
+		)
 	);
 
 	// Nav primary text color.
-	$wp_customize->add_setting( 'peak_publishing_nav_text_color', array(
-		'default' => '#676767'
-	) );
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-			$wp_customize, 
-			'nav_text_color', 
+	$wp_customize->add_setting(
+		'peak_publishing_nav_text_color',
+		array(
+			'default' => '#676767',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'nav_text_color',
 			array(
-				'label'      => __( 'Header Text Color', 'peak_publishing' ),
+				'label'      => __( 'Header Text Color', 'peak-publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_nav_text_color',
 			)
-		) 
+		)
 	);
 
 	// Nav secondary text color.
-	$wp_customize->add_setting( 'peak_publishing_nav_secondary_text_color', array(
-		'default' => '#cccccc'
-	) );
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-			$wp_customize, 
-			'nav_secondary_text_color', 
+	$wp_customize->add_setting(
+		'peak_publishing_nav_secondary_text_color',
+		array(
+			'default' => '#cccccc',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'nav_secondary_text_color',
 			array(
-				'label'      => __( 'Header Secondary Text Color', 'peak_publishing' ),
+				'label'      => __( 'Header Secondary Text Color', 'peak-publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_nav_secondary_text_color',
 			)
-		) 
+		)
 	);
 
 	// Main text color.
-	$wp_customize->add_setting( 'peak_publishing_text_color', array(
-		'default' => '#676767'
-	) );
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-			$wp_customize, 
-			'text_color', 
+	$wp_customize->add_setting(
+		'peak_publishing_text_color',
+		array(
+			'default' => '#676767',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'text_color',
 			array(
-				'label'      => __( 'Text Color', 'peak_publishing' ),
+				'label'      => __( 'Text Color', 'peak-publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_text_color',
 			)
-		) 
+		)
 	);
 
 	// Secondary text color.
-	$wp_customize->add_setting( 'peak_publishing_secondary_text_color', array(
-		'default' => '#cccccc'
-	) );
-	$wp_customize->add_control( 
-		new WP_Customize_Color_Control( 
-			$wp_customize, 
-			'secondary_text_color', 
+	$wp_customize->add_setting(
+		'peak_publishing_secondary_text_color',
+		array(
+			'default' => '#cccccc',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'secondary_text_color',
 			array(
-				'label'      => __( 'Secondary Text Color', 'peak_publishing' ),
+				'label'      => __( 'Secondary Text Color', 'peak-publishing' ),
 				'section'    => 'colors',
 				'settings'   => 'peak_publishing_secondary_text_color',
 			)
-		) 
+		)
 	);
 
 	// Font customization.
-	$wp_customize->add_setting( 'peak_publishing_font_style' , array(
-		'default'   => 'serif',
-	) );
-	$wp_customize->add_section( 'peak_publishing_font_style', array(
-		'title' => __( 'Font Style', 'peak_publishing' ),
-		'priority' => 59,
-	) );
-	$wp_customize->add_control( 'peak_publishing_font_style', array(
-		'label' => __( 'Font Style', 'peak_publishing' ),
-		'section' => 'peak_publishing_font_style',
-		'type' => 'radio',
-		'settings' => 'peak_publishing_font_style',
-		'choices' => array( 
-			'serif' => __( 'Serif', 'peak_publishing' ),
-			'sans-serif' => __( 'Sans-Serif', 'peak_publishing' ),
-		),
-	) );
+	$wp_customize->add_setting(
+		'peak_publishing_font_style',
+		array(
+			'default'   => 'serif',
+			'sanitize_callback' => 'sanitize_title',
+		)
+	);
+	$wp_customize->add_section(
+		'peak_publishing_font_style',
+		array(
+			'title'    => __( 'Font Style', 'peak-publishing' ),
+			'priority' => 59,
+		)
+	);
+	$wp_customize->add_control(
+		'peak_publishing_font_style',
+		array(
+			'label'    => __( 'Font Style', 'peak-publishing' ),
+			'section'  => 'peak_publishing_font_style',
+			'type'     => 'radio',
+			'settings' => 'peak_publishing_font_style',
+			'choices'  => array(
+				'serif'      => __( 'Serif', 'peak-publishing' ),
+				'sans-serif' => __( 'Sans-Serif', 'peak-publishing' ),
+			),
+		)
+	);
 
 	// Nav customization.
-	$wp_customize->add_setting( 'peak_publishing_nav_style' , array(
-		'default'   => 'sticky',
-	) );
-	$wp_customize->add_section( 'peak_publishing_nav_style', array(
-		'title' => __( 'Nav Style', 'peak_publishing' ),
-		'priority' => 58,
-	) );
-	$wp_customize->add_control( 'peak_publishing_nav_style', array(
-		'label' => __( 'Nav Style', 'peak_publishing' ),
-		'section' => 'peak_publishing_nav_style',
-		'type' => 'radio',
-		'settings' => 'peak_publishing_nav_style',
-		'choices' => array( 
-			'sticky' => __( 'Sticky', 'peak_publishing' ),
-			'static' => __( 'Static', 'peak_publishing' ),
-		),
-	) );
-
+	$wp_customize->add_setting(
+		'peak_publishing_nav_style',
+		array(
+			'default'   => 'sticky',
+			'sanitize_callback' => 'sanitize_title',
+		)
+	);
+	$wp_customize->add_section(
+		'peak_publishing_nav_style',
+		array(
+			'title'    => __( 'Nav Style', 'peak-publishing' ),
+			'priority' => 58,
+		)
+	);
+	$wp_customize->add_control(
+		'peak_publishing_nav_style',
+		array(
+			'label'    => __( 'Nav Style', 'peak-publishing' ),
+			'section'  => 'peak_publishing_nav_style',
+			'type'     => 'radio',
+			'settings' => 'peak_publishing_nav_style',
+			'choices'  => array(
+				'sticky' => __( 'Sticky', 'peak-publishing' ),
+				'static' => __( 'Static', 'peak-publishing' ),
+			),
+		)
+	);
 
 	// River customization.
-	$wp_customize->add_setting( 'peak_publishing_river_style' , array(
-		'default'   => 'large',
-	) );
-	$wp_customize->add_section( 'peak_publishing_river_style', array(
-		'title' => __( 'River Style', 'peak_publishing' ),
-		'priority' => 60,
-	) );
-	$wp_customize->add_control( 'peak_publishing_river_style', array(
-		'label' => __( 'River Style', 'peak_publishing' ),
-		'section' => 'peak_publishing_river_style',
-		'type' => 'radio',
-		'settings' => 'peak_publishing_river_style',
-		'choices' => array( 
-			'large' => __( 'Large', 'peak_publishing' ),
-			'small' => __( 'Small', 'peak_publishing' ),
-		),
-	) );
+	$wp_customize->add_setting(
+		'peak_publishing_river_style',
+		array(
+			'default'   => 'large',
+			'sanitize_callback' => 'sanitize_title',
+		)
+	);
+	$wp_customize->add_section(
+		'peak_publishing_river_style',
+		array(
+			'title'    => __( 'River Style', 'peak-publishing' ),
+			'priority' => 60,
+		)
+	);
+	$wp_customize->add_control(
+		'peak_publishing_river_style',
+		array(
+			'label'    => __( 'River Style', 'peak-publishing' ),
+			'section'  => 'peak_publishing_river_style',
+			'type'     => 'radio',
+			'settings' => 'peak_publishing_river_style',
+			'choices'  => array(
+				'large' => __( 'Large', 'peak-publishing' ),
+				'small' => __( 'Small', 'peak-publishing' ),
+			),
+		)
+	);
 
 	// @todo add refresh for widgets and colors etc.
 	if ( isset( $wp_customize->selective_refresh ) ) {
-		$wp_customize->selective_refresh->add_partial( 'blogname', array(
-			'selector'        => '.site-title a',
-			'render_callback' => 'peak_publishing_customize_partial_blogname',
-		) );
-		$wp_customize->selective_refresh->add_partial( 'blogdescription', array(
-			'selector'        => '.site-description',
-			'render_callback' => 'peak_publishing_customize_partial_blogdescription',
-		) );
+		$wp_customize->selective_refresh->add_partial(
+			'blogname',
+			array(
+				'selector'        => '.site-title a',
+				'render_callback' => 'peak_publishing_customize_partial_blogname',
+			)
+		);
+		$wp_customize->selective_refresh->add_partial(
+			'blogdescription',
+			array(
+				'selector'        => '.site-description',
+				'render_callback' => 'peak_publishing_customize_partial_blogdescription',
+			)
+		);
 	}
 }
 add_action( 'customize_register', 'peak_publishing_customize_register' );
 
+/**
+ * Output styles to match the customizer settings.
+ */
 function peak_publishing_customizer_styles() {
-	//var_dump( get_background_color() ); die();
-	$bg_color = sanitize_hex_color( '#' . get_background_color() );
-	$nav_bg_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_bg_color', '#ffffff' ) );
-	$nav_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_text_color', '#676767' ) );
+	$bg_color                 = sanitize_hex_color( '#' . get_background_color() );
+	$nav_bg_color             = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_bg_color', '#ffffff' ) );
+	$nav_text_color           = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_text_color', '#676767' ) );
 	$nav_secondary_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_secondary_text_color', '#cccccc' ) );
-	$text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_text_color', '#676767' ) );
-	$text_secondary_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_secondary_text_color', '#cccccc' ) );
-	$font_style = get_theme_mod( 'peak_publishing_font_style', 'serif' );
+	$text_color               = sanitize_hex_color( get_theme_mod( 'peak_publishing_text_color', '#676767' ) );
+	$text_secondary_color     = sanitize_hex_color( get_theme_mod( 'peak_publishing_secondary_text_color', '#cccccc' ) );
+	$font_style               = get_theme_mod( 'peak_publishing_font_style', 'serif' );
 	?>
 	<style>
 		html {
-			font-family: <?php echo 'serif' === $font_style ? "'Charter', serif" : "'OpenSans', sans-serif" ?>;
+			font-family: <?php echo 'serif' === $font_style ? "'Charter', serif" : "'OpenSans', sans-serif"; ?>;
 		}
 		header.site-header, header.site-header #primary-menu {
-			background-color: <?php echo $nav_bg_color ?>;
+			background-color: <?php echo $nav_bg_color; ?>;
 		}
 
 		header.site-header #primary-menu .menu-item-has-children .sub-menu {
-			background-color: <?php echo $nav_bg_color ?>;
-			border: 1px solid <?php echo $nav_secondary_text_color ?>;
+			background-color: <?php echo $nav_bg_color; ?>;
+			border: 1px solid <?php echo $nav_secondary_text_color; ?>;
 		}
 
 		header.site-header .site-title {
-			color: <?php echo $nav_text_color ?>;
+			color: <?php echo $nav_text_color; ?>;
 		}
 
 		#primary-menu a, .menu-toggle {
-			color: <?php echo $nav_secondary_text_color ?>;
+			color: <?php echo $nav_secondary_text_color; ?>;
 		}
 
 		#main {
-			color: <?php echo $text_color ?>;
+			color: <?php echo $text_color; ?>;
 		}
 
 		.search-field {
-			color: <?php echo $text_color ?>!important;
+			color: <?php echo $text_color; ?>!important;
 		}
 
 		.byline, a, a:visited, a:hover, footer, input[type="submit"] {
-			color: <?php echo $text_secondary_color ?>;
+			color: <?php echo $text_secondary_color; ?>;
 		}
 
 		.mem-block a, .river-block a {
-			color: <?php echo $text_color ?>;
+			color: <?php echo $text_color; ?>;
 		}
 
 		input[type="submit"], input[type="search"], textarea, .mem-block.full.no-thumbnail, .mem-block.large.no-thumbnail {
-			border: 1px solid <?php echo $text_secondary_color ?>;
+			border: 1px solid <?php echo $text_secondary_color; ?>;
 		}
 
 		.mem-block.full.has-thumbnail .article-info, input[type="submit"], input[type="search"] {
-			background-color: <?php echo $bg_color ?>;
+			background-color: <?php echo $bg_color; ?>;
 		}
 
 		hr {
-			background-color: <?php echo $text_secondary_color ?>;
+			background-color: <?php echo $text_secondary_color; ?>;
 		}
 	</style>
 	<?php
 }
 add_action( 'wp_head', 'peak_publishing_customizer_styles', 99 );
 
+/**
+ * Add classes to the body depending on the nav settings.
+ *
+ * @param array $classes Body classes.
+ * @return array $classes
+ */
 function peak_publishing_nav_classes( $classes ) {
 	$nav_style = get_theme_mod( 'peak_publishing_nav_style', 'sticky' );
 	$classes[] = 'sticky' === $nav_style ? 'sticky-nav' : 'static-nav';
@@ -237,6 +300,9 @@ function peak_publishing_nav_classes( $classes ) {
 }
 add_filter( 'body_class', 'peak_publishing_nav_classes' );
 
+/**
+ * Output the correct style of river depending on settings.
+ */
 function peak_publishing_river_template() {
 	$style = get_theme_mod( 'peak_publishing_river_style', 'large' );
 

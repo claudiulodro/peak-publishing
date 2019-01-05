@@ -1,0 +1,7 @@
+WordPress-Coding-Standards
+phpcs.phar
+composer.phar
+CodeSniffer.conf
+PHPCompatibility
+css/.sass-cache
+phpcbf.phar

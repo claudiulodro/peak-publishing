@@ -1,3 +1,11 @@
+<?php
+/**
+ * The header.
+ *
+ * @package Peak_Publishing
+ */
+
+?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -15,9 +23,9 @@
 	<header id="masthead" class="site-header">
 		<div class="header-contents">
 			<div class="site-branding">
-				<?php if ( has_custom_logo() ): ?>
+				<?php if ( has_custom_logo() ) : ?>
 					<?php the_custom_logo(); ?>
-				<?php else: ?>
+				<?php else : ?>
 					<div class="site-title">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</div>
@@ -27,11 +35,13 @@
 			<nav id="site-navigation" class="main-navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">&#9776;</button>
 				<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-					'depth'          => 2,
-				) );
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-1',
+						'menu_id'        => 'primary-menu',
+						'depth'          => 2,
+					)
+				);
 				?>
 			</nav>
 		</div>

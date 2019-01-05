@@ -1,4 +1,10 @@
 <?php
+/**
+ * The template for a page.
+ *
+ * @package Peak_Publishing
+ */
+
 get_header();
 ?>
 

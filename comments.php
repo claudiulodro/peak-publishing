@@ -1,11 +1,6 @@
 <?php
 /**
- * The template for displaying comments
- *
- * This is the template that displays the area of the page that contains both the current comments
- * and the comment form.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * The template for displaying comments.
  *
  * @package Peak_Publishing
  */
@@ -23,7 +18,6 @@ if ( post_password_required() ) {
 <div id="comments" class="comments-area">
 
 	<?php
-	// You can start editing here -- including this comment!
 	if ( have_comments() ) :
 		?>
 		<h2 class="comments-title">
@@ -36,7 +30,7 @@ if ( post_password_required() ) {
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
-				printf( // WPCS: XSS OK.
+				printf(
 					/* translators: 1: comment count number, 2: title. */
 					esc_html( _nx( '%1$s thought on &ldquo;%2$s&rdquo;', '%1$s thoughts on &ldquo;%2$s&rdquo;', $peak_publishing_comment_count, 'comments title', 'peak-publishing' ) ),
 					number_format_i18n( $peak_publishing_comment_count ),
@@ -44,18 +38,20 @@ if ( post_password_required() ) {
 				);
 			}
 			?>
-		</h2><!-- .comments-title -->
+		</h2>
 
 		<?php the_comments_navigation(); ?>
 
 		<ol class="comment-list">
 			<?php
-			wp_list_comments( array(
-				'style'      => 'ol',
-				'short_ping' => true,
-			) );
+			wp_list_comments(
+				array(
+					'style'      => 'ol',
+					'short_ping' => true,
+				)
+			);
 			?>
-		</ol><!-- .comment-list -->
+		</ol>
 
 		<?php
 		the_comments_navigation();
@@ -67,9 +63,9 @@ if ( post_password_required() ) {
 			<?php
 		endif;
 
-	endif; // Check for have_comments().
+	endif;
 
 	comment_form();
 	?>
 
-</div><!-- #comments -->
+</div>

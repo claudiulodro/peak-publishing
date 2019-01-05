@@ -1,4 +1,10 @@
 <?php
+/**
+ * The template for displaying attachment pages.
+ *
+ * @package Peak_Publishing
+ */
+
 get_header();
 ?>
 
@@ -11,14 +17,14 @@ get_header();
 				?>
 
 				<article id="post-<?php the_ID(); ?>" <?php post_class( is_active_sidebar( 'single' ) ? array( 'has-sidebar' ) : array( 'no-sidebar' ) ); ?>>
-					<?php the_title( '<h1 class="title">', '</h1>' ) ?>
+					<?php the_title( '<h1 class="title">', '</h1>' ); ?>
 
 					<div class="post-thumbnail">
-            			<?php echo wp_get_attachment_image( get_the_ID(), 'single' ); ?>
-            		</div>
+						<?php echo wp_get_attachment_image( get_the_ID(), 'single' ); ?>
+					</div>
 
 					<div class="content">
- 						<?php the_excerpt(); ?>
+						<?php the_excerpt(); ?>
 					</div>
 
 					<?php
@@ -27,7 +33,7 @@ get_header();
 					endif;
 					?>
 				</article>
-			<?php
+				<?php
 			endwhile;
 			?>
 

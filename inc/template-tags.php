@@ -1,4 +1,9 @@
 <?php
+/**
+ * HTML template functions.
+ *
+ * @package Peak_Publishing
+ */
 
 if ( ! function_exists( 'peak_publishing_entry_footer' ) ) :
 	/**
@@ -11,14 +16,14 @@ if ( ! function_exists( 'peak_publishing_entry_footer' ) ) :
 			$categories_list = get_the_category_list( esc_html__( ', ', 'peak-publishing' ) );
 			if ( $categories_list ) {
 				/* translators: 1: list of categories. */
-				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'peak-publishing' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'peak-publishing' ) . '</span>', $categories_list );
 			}
 
 			/* translators: used between list items, there is a space after the comma */
 			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'peak-publishing' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'peak-publishing' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'peak-publishing' ) . '</span>', $tags_list );
 			}
 		}
 
@@ -83,15 +88,20 @@ if ( ! function_exists( 'peak_publishing_post_thumbnail' ) ) :
 
 		<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
 			<?php
-			the_post_thumbnail( 'post-thumbnail', array(
-				'alt' => the_title_attribute( array(
-					'echo' => false,
-				) ),
-			) );
+			the_post_thumbnail(
+				'post-thumbnail',
+				array(
+					'alt' => the_title_attribute(
+						array(
+							'echo' => false,
+						)
+					),
+				)
+			);
 			?>
 		</a>
 
-		<?php
+			<?php
 		endif;
 	}
 endif;

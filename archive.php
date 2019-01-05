@@ -1,4 +1,9 @@
 <?php
+/**
+ * The template for displaying archives.
+ *
+ * @package Peak_Publishing
+ */
 
 $queried_object = get_queried_object();
 get_header();
@@ -15,16 +20,23 @@ get_header();
 				?>
 			</header>
 
-			<?php if ( ! is_paged() && isset( $queried_object, $queried_object->taxonomy ) && is_active_sidebar( 'taxonomy' ) ):
+			<?php
+			if ( ! is_paged() && isset( $queried_object, $queried_object->taxonomy ) ) :
 				get_sidebar( 'taxonomy' );
-			endif ?>
+			endif
+			?>
 
 			<?php
 			while ( have_posts() ) :
 				peak_publishing_river_template();
 			endwhile;
 
-			the_posts_navigation( array( 'prev_text' => 'Previous', 'next_text' => 'Next' ) );
+			the_posts_navigation(
+				array(
+					'prev_text' => 'Previous',
+					'next_text' => 'Next',
+				)
+			);
 
 		else :
 
