@@ -19,7 +19,7 @@ Use it for local news, tech news, online magazines, entertainment gossip, longfo
 
 = What are the customization features? =
 
-You can customize the homepage, the archives, the posts list, the navigation, the font style, and all the colors using a powerful and straightforward interface. There is a good balance between customizability and simplicity, so you can make any sort of content site without getting overwhelmed. For more information and examples, check out the documentation.
+You can customize the homepage, the archives, the posts list, the navigation, the font style, and all the colors using a powerful and straightforward interface. There is a good balance between customizability and simplicity, so you can make any sort of content site without getting overwhelmed. [For more documentation and examples, check out the documentation.](https://github.com/claudiulodro/peak-publishing)
 
 = What plugins does this theme support? =
 
@@ -31,7 +31,7 @@ This theme has full WordPress 5.0 support, so you can use all of the latest and 
 
 = Where can I report a bug or suggest a feature? =
 
-todo
+[Please do this on GitHub here.](https://github.com/claudiulodro/peak-publishing/issues)
 
 == Changelog ==
 
