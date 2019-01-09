@@ -1,19 +1,20 @@
 <?php
 /**
- * The template for one full-size river post.
+ * The template for a large featured section.
  *
  * @package Peak_Publishing
  */
 
-global $wp_query; ?>
+global $wp_query;
+?>
 
 <?php
 if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ) :
 	the_post();
 	?>
-	<div class="river-block full  <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
+	<div class="featured-section large <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'river-full' ); ?></a></div>
+			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-section-large' ); ?></a></div>
 		<?php endif ?>
 		<div class="article-info">
 			<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>

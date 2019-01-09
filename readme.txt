@@ -1,31 +1,37 @@
 === Peak Publishing ===
 
-Contributors: automattic
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+Contributors: claudiulodro
+Tags: grid-layout, one-column, two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, featured-images, theme-options, threaded-comments, translation-ready, entertainment, news
 
-Requires at least: 4.5
-Tested up to: 4.8
+Requires at least: 4.9
+Tested up to: 5.0
 Stable tag: 1.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-
-A starter theme called Peak Publishing.
+License: GNU General Public License v3
+License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
 == Description ==
 
-Description
+Peak Publishing is a full-featured, highly-customizable theme designed for online publishing sites. It is a fast-loading, lightweight theme that stays out of your way so you can focus on writing and publishing content without getting bogged down with technicalities.
 
-== Installation ==
-
-1. In your admin panel, go to Appearance > Themes and click the Add New button.
-2. Click Upload Theme and Choose File, then select the theme's .zip file. Click Install Now.
-3. Click Activate to use your new theme right away.
+Use it for local news, tech news, online magazines, entertainment gossip, longform content, reviews sites, or any other type of content. The customization features make this theme suitable for any type of online publisher. The possibilities are limitless!
 
 == Frequently Asked Questions ==
 
-= Does this theme support any plugins? =
+= What are the customization features? =
 
-Peak Publishing includes support for Infinite Scroll in Jetpack.
+You can customize the homepage, the archives, the posts list, the navigation, the font style, and all the colors using a powerful and straightforward interface. There is a good balance between customizability and simplicity, so you can make any sort of content site without getting overwhelmed. For more information and examples, check out the documentation.
+
+= What plugins does this theme support? =
+
+Peak Publishing is built on top of the Underscores framework and follows WordPress best-practices, so it should work with most plugins.This theme has been tested with Jetpack, WooCommerce, Yoast SEO, and other popular free plugins.
+
+= Does this theme support WordPress 5.0 and the new block editor? =
+
+This theme has full WordPress 5.0 support, so you can use all of the latest and greatest features and all of the blocks from the new block editor!
+
+= Where can I report a bug or suggest a feature? =
+
+todo
 
 == Changelog ==
 
@@ -33,6 +39,6 @@ Peak Publishing includes support for Infinite Scroll in Jetpack.
 * Initial release
 
 == Credits ==
-
-* Based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* claudiulodro
+* Built on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * normalize.css https://necolas.github.io/normalize.css/, (C) 2012-2016 Nicolas Gallagher and Jonathan Neal, [MIT](https://opensource.org/licenses/MIT)

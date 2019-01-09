@@ -5,6 +5,8 @@
  * @package Peak_Publishing
  */
 
+define( 'PEAK_PUBLISHING_VERSION', '1.0.0' );
+
 if ( ! function_exists( 'peak_publishing_setup' ) ) :
 	/**
 	 * Set up the theme supports and stuff for the theme.
@@ -18,12 +20,12 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
-		add_image_size( 'mem-full', 1172, 450, true );
-		add_image_size( 'mem-large', 782, 340, true );
-		add_image_size( 'mem-small', 327, 175, true );
+		add_image_size( 'featured-section-full', 1172, 450, true );
+		add_image_size( 'featured-section-large', 782, 340, true );
+		add_image_size( 'featured-section-small', 327, 175, true );
 
-		add_image_size( 'river-full', 556, 340, true );
-		add_image_size( 'river-small', 350, 217, true );
+		add_image_size( 'posts-list-full', 556, 340, true );
+		add_image_size( 'posts-list-small', 350, 217, true );
 
 		add_image_size( 'single', 1172, 600, true );
 
@@ -55,15 +57,13 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		add_theme_support(
-			'custom-logo',
-			array(
-				'height'      => 250,
-				'width'       => 250,
-				'flex-width'  => true,
-				'flex-height' => true,
-			)
+		$logo_args = array(
+			'height'      => 64,
+			'width'       => 200,
+			'flex-width'  => true,
+			'flex-height' => false,
 		);
+		add_theme_support( 'custom-logo', $logo_args );
 	}
 endif;
 add_action( 'after_setup_theme', 'peak_publishing_setup' );
@@ -76,10 +76,7 @@ add_action( 'after_setup_theme', 'peak_publishing_setup' );
  * @global int $content_width
  */
 function peak_publishing_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'peak_publishing_content_width', 640 );
+	$GLOBALS['content_width'] = apply_filters( 'peak_publishing_content_width', 1172 );
 }
 add_action( 'after_setup_theme', 'peak_publishing_content_width', 0 );
 
@@ -119,9 +116,9 @@ function peak_publishing_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Homepage MEM', 'peak-publishing' ),
+			'name'          => esc_html__( 'Homepage Featured Content Area', 'peak-publishing' ),
 			'id'            => 'homepage',
-			'description'   => esc_html__( 'The homepage MEM', 'peak-publishing' ),
+			'description'   => esc_html__( 'The homepage featured content area', 'peak-publishing' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -131,9 +128,9 @@ function peak_publishing_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name'          => esc_html__( 'Taxonomy MEM', 'peak-publishing' ),
+			'name'          => esc_html__( 'Taxonomy Featured Content Area', 'peak-publishing' ),
 			'id'            => 'taxonomy',
-			'description'   => esc_html__( 'The taxonomies MEM.', 'peak-publishing' ),
+			'description'   => esc_html__( 'The taxonomies featured content area', 'peak-publishing' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h2 class="widget-title">',
@@ -147,12 +144,11 @@ add_action( 'widgets_init', 'peak_publishing_widgets_init' );
  * Enqueue scripts and styles.
  */
 function peak_publishing_scripts() {
-	wp_enqueue_style( 'peak-publishing-style-reset', get_stylesheet_uri(), [], rand() );
-	wp_enqueue_style( 'peak-publishing-style', get_stylesheet_directory_uri() . '/css/peak-publishing.css', [], rand() ); // @todo remove rand()
+	wp_enqueue_style( 'peak-publishing-style-reset', get_stylesheet_uri(), array(), PEAK_PUBLISHING_VERSION );
+	wp_enqueue_style( 'peak-publishing-style', get_stylesheet_directory_uri() . '/css/peak-publishing.css', array(), PEAK_PUBLISHING_VERSION ); 
 
-	wp_enqueue_script( 'peak-publishing-navigation', get_template_directory_uri() . '/js/navigation.js', array(), rand(), true );
-
-	wp_enqueue_script( 'peak-publishing-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	wp_enqueue_script( 'peak-publishing-navigation', get_template_directory_uri() . '/js/navigation.js', array(), PEAK_PUBLISHING_VERSION, true );
+	wp_enqueue_script( 'peak-publishing-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), PEAK_PUBLISHING_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );

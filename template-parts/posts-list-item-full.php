@@ -1,26 +1,23 @@
 <?php
 /**
- * The template for a full-size MEM block.
+ * The template for one full-size posts list post.
  *
  * @package Peak_Publishing
  */
 
-global $wp_query;
-?>
+global $wp_query; ?>
 
 <?php
 if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ) :
 	the_post();
 	?>
-	<div class="mem-block full <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
+	<div class="posts-list-item full  <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'mem-full' ); ?></a></div>
+			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'posts-list-full' ); ?></a></div>
 		<?php endif ?>
 		<div class="article-info">
 			<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
-			<?php if ( ! has_post_thumbnail() ) : ?>
-				<div class="excerpt"><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></div>
-			<?php endif ?>
+			<div class="excerpt"><a href="<?php the_permalink(); ?>"><?php the_excerpt(); ?></a></div>
 			<div class="byline">By <?php the_author(); ?> &mdash; <?php the_time( 'F j, Y' ); ?></div>
 		</div>
 	</div>

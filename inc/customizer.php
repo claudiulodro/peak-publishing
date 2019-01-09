@@ -173,28 +173,28 @@ function peak_publishing_customize_register( $wp_customize ) {
 		)
 	);
 
-	// River customization.
+	// Posts list customization.
 	$wp_customize->add_setting(
-		'peak_publishing_river_style',
+		'peak_publishing_posts_list_style',
 		array(
 			'default'   => 'large',
 			'sanitize_callback' => 'sanitize_title',
 		)
 	);
 	$wp_customize->add_section(
-		'peak_publishing_river_style',
+		'peak_publishing_posts_list_style',
 		array(
-			'title'    => __( 'River Style', 'peak-publishing' ),
+			'title'    => __( 'Posts List Style', 'peak-publishing' ),
 			'priority' => 60,
 		)
 	);
 	$wp_customize->add_control(
-		'peak_publishing_river_style',
+		'peak_publishing_posts_list_style',
 		array(
-			'label'    => __( 'River Style', 'peak-publishing' ),
-			'section'  => 'peak_publishing_river_style',
+			'label'    => __( 'Posts List Style', 'peak-publishing' ),
+			'section'  => 'peak_publishing_posts_list_style',
 			'type'     => 'radio',
-			'settings' => 'peak_publishing_river_style',
+			'settings' => 'peak_publishing_posts_list_style',
 			'choices'  => array(
 				'large' => __( 'Large', 'peak-publishing' ),
 				'small' => __( 'Small', 'peak-publishing' ),
@@ -202,7 +202,6 @@ function peak_publishing_customize_register( $wp_customize ) {
 		)
 	);
 
-	// @todo add refresh for widgets and colors etc.
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial(
 			'blogname',
@@ -267,15 +266,15 @@ function peak_publishing_customizer_styles() {
 			color: <?php echo $text_secondary_color; ?>;
 		}
 
-		.mem-block a, .river-block a {
+		.featured-section a, .posts-list-item a {
 			color: <?php echo $text_color; ?>;
 		}
 
-		input[type="submit"], input[type="search"], textarea, .mem-block.full.no-thumbnail, .mem-block.large.no-thumbnail {
+		input[type="submit"], input[type="search"], textarea, .featured-section.full.no-thumbnail, .featured-section.large.no-thumbnail {
 			border: 1px solid <?php echo $text_secondary_color; ?>;
 		}
 
-		.mem-block.full.has-thumbnail .article-info, input[type="submit"], input[type="search"] {
+		.featured-section.full.has-thumbnail .article-info, input[type="submit"], input[type="search"] {
 			background-color: <?php echo $bg_color; ?>;
 		}
 
@@ -301,15 +300,15 @@ function peak_publishing_nav_classes( $classes ) {
 add_filter( 'body_class', 'peak_publishing_nav_classes' );
 
 /**
- * Output the correct style of river depending on settings.
+ * Output the correct style of posts list depending on settings.
  */
-function peak_publishing_river_template() {
-	$style = get_theme_mod( 'peak_publishing_river_style', 'large' );
+function peak_publishing_posts_list_template() {
+	$style = get_theme_mod( 'peak_publishing_posts_list_style', 'large' );
 
 	if ( 'large' === $style ) {
-		get_template_part( 'template-parts/river-block-full', get_post_type() );
+		get_template_part( 'template-parts/posts-list-item-full', get_post_type() );
 	} else {
-		get_template_part( 'template-parts/river-block-small', get_post_type() );
+		get_template_part( 'template-parts/posts-list-item-small', get_post_type() );
 	}
 }
 

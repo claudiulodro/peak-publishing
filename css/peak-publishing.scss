@@ -129,7 +129,7 @@ header.site-header {
 	.toggled {
 		width: 100%!important;
 		right: 0!important;
-		top: 0;
+		top: 0!important;
 
 		.menu-toggle {
 			position: absolute;
@@ -193,7 +193,7 @@ input[type="submit"] {
  * Archive styles.
  */
 
-.mem-block {
+.featured-section {
 	margin-bottom: 2em;
 	position: relative;
 
@@ -303,7 +303,7 @@ input[type="submit"] {
 	}
 }
 
-.river-block {
+.posts-list-item {
 	margin-bottom: 2em;
 	position: relative;
 
@@ -538,6 +538,11 @@ input[type="submit"] {
 	.tags-links {
 		margin-left: 1em;
 	}
+
+	figure.gallery-item {
+		padding-left: .5em;
+		padding-right: .5em;
+	}
 }
 
 #sidebar-single {
@@ -556,6 +561,8 @@ input[type="submit"] {
 footer.site-footer {
 	text-align: center;
 	margin-top: 4em;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
 
 	.site-description {
 		margin-top: 2em;
@@ -604,7 +611,29 @@ footer.site-footer {
 		display: block;
 	}
 
-	.mem-block {
+	#site-navigation {
+		position: absolute;
+		right: 1em;
+		top: 1em;
+		width: auto;
+	}
+
+	header.site-header {
+		#primary-menu {
+			position: relative;
+			top: auto;
+			right: auto;
+			text-align: center;
+
+			> li {
+				float: none;
+				width: 100%;
+				font-size: 1.25em;
+			}
+		}
+	}
+
+	.featured-section {
 		&.full.has-thumbnail {
 			.article-info {
 				background: inherit;
@@ -637,7 +666,7 @@ footer.site-footer {
 		}
 	}
 
-	.river-block {
+	.posts-list-featured-section {
 		&.full {
 			padding: 0;
 
@@ -687,38 +716,30 @@ footer.site-footer {
  * Mobile styles.
  */
 @media (max-width: 600px) {
-	#site-navigation {
-		position: absolute;
-		right: 1em;
-		width: auto;
-	}
 
-	header.site-header {
-		#primary-menu {
-			position: relative;
-			top: auto;
-			right: auto;
-			text-align: center;
-
-			> li {
-				float: none;
-				width: 100%;
-				font-size: 1.25em;
-			}
-		}
+	ul {
+		margin-left: 0;
 	}
 
 	.site-title {
 		left: 1em;
 	}
 
+	header.site-header .header-contents {
+		padding-left: 2em;
+	}
+
 	#content {
 		font-size: 14px;
 		padding-left: 2em;
 		padding-right: 2em;
+
+		figure.gallery-item {
+			max-width: 100%!important;
+		}
 	}
 
-	.mem-block {
+	.featured-section {
 		.title {
 			font-size: 1.5em!important;
 		}
@@ -776,7 +797,7 @@ footer.site-footer {
 		}
 	}
 
-	.river-block {
+	.posts-list-item {
 		.title {
 			font-size: 1.5em!important;
 		}

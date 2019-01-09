@@ -27,7 +27,7 @@ get_header();
 
 			/* Start the Loop */
 			while ( have_posts() ) :
-				peak_publishing_river_template();
+				peak_publishing_posts_list_template();
 			endwhile;
 
 			the_posts_navigation(

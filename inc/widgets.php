@@ -1,24 +1,24 @@
 <?php
 /**
- * Register the "widgets" used in the MEM.
+ * Register the "widgets".
  *
  * @package Peak_Publishing
  */
 
 /**
- * A full-width MEM block.
+ * A full-width featured section.
  */
-class Peak_Publishing_MEM_Block_Full extends WP_Widget {
+class Peak_Publishing_Featured_Section_Full extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_mem_block_full',
-			'MEM Block: Full',
+			'peak_publishing_featured_section_full',
+			__( 'Featured Section: Full', 'peak-publishing' ),
 			array(
-				'description' => __( 'Full width MEM block', 'peak-publishing' ),
+				'description' => __( 'Full width featured section for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -30,24 +30,28 @@ class Peak_Publishing_MEM_Block_Full extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/mem-block-full', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/featured-section-full', get_post_type() );
 	}
 }
 
 /**
- * A 2/3-width MEM block.
+ * A 2/3-width featured section.
  */
-class Peak_Publishing_MEM_Block_Large extends WP_Widget {
+class Peak_Publishing_Featured_Section_Large extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_mem_block_large',
-			'MEM Block: Large',
+			'peak_publishing_featured_section_large',
+			__( 'Featured Section: Large', 'peak-publishing' ),
 			array(
-				'description' => __( '2/3 width MEM block', 'peak-publishing' ),
+				'description' => __( '2/3 width featured section for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -59,24 +63,28 @@ class Peak_Publishing_MEM_Block_Large extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/mem-block-large', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/featured-section-large', get_post_type() );
 	}
 }
 
 /**
- * A 1/3-width MEM block.
+ * A 1/3-width featured section.
  */
-class Peak_Publishing_MEM_Block_Small extends WP_Widget {
+class Peak_Publishing_Featured_Section_Small extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_mem_block_small',
-			'MEM Block: Small',
+			'peak_publishing_featured_section_small',
+			__( 'Featured Section: Small', 'peak-publishing' ),
 			array(
-				'description' => __( '1/3 width MEM block', 'peak-publishing' ),
+				'description' => __( '1/3 width featured section for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -88,24 +96,28 @@ class Peak_Publishing_MEM_Block_Small extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/mem-block-small', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/featured-section-small', get_post_type() );
 	}
 }
 
 /**
- * A spacer MEM block.
+ * A spacer featured section.
  */
-class Peak_Publishing_MEM_Block_Spacer extends WP_Widget {
+class Peak_Publishing_Featured_Section_Spacer extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_mem_block_spacer',
-			'MEM Block: Spacer',
+			'peak_publishing_featured_section_spacer',
+			__( 'Featured Section: Spacer', 'peak-publishing' ),
 			array(
-				'description' => __( 'A spacer or divider MEM block', 'peak-publishing' ),
+				'description' => __( 'A spacer or divider featured section for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -117,24 +129,28 @@ class Peak_Publishing_MEM_Block_Spacer extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/mem-block-spacer', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/featured-section-spacer', get_post_type() );
 	}
 }
 
 /**
- * A full-width river MEM block.
+ * A full-width posts list post.
  */
-class Peak_Publishing_River_Block_Full extends WP_Widget {
+class Peak_Publishing_Posts_List_Featured_Section_Full extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_river_block_full',
-			'River Block: Full',
+			'peak_publishing_posts_list_featured_section_full',
+			__( 'Posts List Section: Full', 'peak-publishing' ),
 			array(
-				'description' => __( 'One full width river post', 'peak-publishing' ),
+				'description' => __( 'One full-width posts list post for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -146,24 +162,28 @@ class Peak_Publishing_River_Block_Full extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/river-block-full', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/posts-list-item-full', get_post_type() );
 	}
 }
 
 /**
- * A small river MEM block.
+ * A row of posts list posts.
  */
-class Peak_Publishing_River_Block_Small extends WP_Widget {
+class Peak_Publishing_Posts_List_Featured_Section_Small extends WP_Widget {
 
 	/**
 	 * Widget contructor.
 	 */
 	public function __construct() {
 		parent::__construct(
-			'peak_publishing_river_block_small',
-			'River Block: Small',
+			'peak_publishing_posts_list_featured_section_small',
+			__( 'Posts List Section: Small', 'peak-publishing' ),
 			array(
-				'description' => __( 'A row of river posts', 'peak-publishing' ),
+				'description' => __( 'A row of posts list posts for use in the homepage or taxonomy featured content area', 'peak-publishing' ),
 			)
 		);
 	}
@@ -175,7 +195,11 @@ class Peak_Publishing_River_Block_Small extends WP_Widget {
 	 * @param array $instance Settings for the current instance.
 	 */
 	public function widget( $args, $instance ) {
-		get_template_part( 'template-parts/river-block-small', get_post_type() );
+		if ( is_single() ) {
+			return;
+		}
+
+		get_template_part( 'template-parts/posts-list-item-small', get_post_type() );
 	}
 }
 
@@ -183,11 +207,11 @@ class Peak_Publishing_River_Block_Small extends WP_Widget {
  * Register the widgets.
  */
 function peak_publishing_register_widgets() {
-	register_widget( 'Peak_Publishing_MEM_Block_Full' );
-	register_widget( 'Peak_Publishing_MEM_Block_Large' );
-	register_widget( 'Peak_Publishing_MEM_Block_Small' );
-	register_widget( 'Peak_Publishing_MEM_Block_Spacer' );
-	register_widget( 'Peak_Publishing_River_Block_Full' );
-	register_widget( 'Peak_Publishing_River_Block_Small' );
+	register_widget( 'Peak_Publishing_Featured_Section_Full' );
+	register_widget( 'Peak_Publishing_Featured_Section_Large' );
+	register_widget( 'Peak_Publishing_Featured_Section_Small' );
+	register_widget( 'Peak_Publishing_Featured_Section_Spacer' );
+	register_widget( 'Peak_Publishing_Posts_List_Featured_Section_Full' );
+	register_widget( 'Peak_Publishing_Posts_List_Featured_Section_Small' );
 }
 add_action( 'widgets_init', 'peak_publishing_register_widgets' );

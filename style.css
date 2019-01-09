@@ -3,12 +3,12 @@ Theme Name: Peak Publishing
 Theme URI: https://github.com/claudiulodro/peak-publishing
 Author: Claudiu Lodromanean
 Author URI: https://github.com/claudiulodro
-Description: Description
+Description: Peak Publishing is a full-featured, highly-customizable theme designed for online publishing sites. It is a fast-loading, lightweight theme that stays out of your way so you can focus on writing and publishing content without getting bogged down with technicalities.
 Version: 1.0.0
 License: GNU General Public License v3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 Text Domain: peak-publishing
-Tags: grid-layout, one-column,two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, featured-images, theme-options,threaded-comments, translation-ready, blog, entertainment, news
+Tags: grid-layout, one-column, two-columns, right-sidebar, custom-background, custom-colors, custom-menu, custom-logo, featured-images, theme-options, threaded-comments, translation-ready, entertainment, news
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -693,7 +693,7 @@ a:hover, a:active {
 	display: block;
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 800px) {
 	.menu-toggle {
 		display: none;
 	}
