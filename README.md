@@ -4,7 +4,9 @@ Peak Publishing is a full-featured, highly-customizable theme designed for onlin
 
 Use it for local news, tech news, online magazines, entertainment gossip, longform content, reviews sites, or any other type of content. The customization features make this theme suitable for any type of online publisher. The possibilities are limitless!
 
-## Be sure to check out the gallery to see some examples of the sorts of sites you can make!
+![peak publishing screenshot](docs/screenshot-1.png)
+
+### Be sure to check out the gallery below the documentation to see more examples of the sorts of sites you can make!
 
 ## Documentation
 
@@ -33,3 +35,11 @@ You can select the font style in the Customizer under Font Style. You can select
 ### Customizing the colors.
 
 You can select different colors for the site in the Customizer under Colors.
+
+## Gallery
+
+![peak publishing screenshot](docs/screenshot-4.png)
+
+![peak publishing screenshot](docs/screenshot-2.png)
+
+![peak publishing screenshot](docs/screenshot-3.png)
