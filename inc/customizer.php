@@ -39,7 +39,7 @@ function peak_publishing_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'peak_publishing_nav_text_color',
 		array(
-			'default' => '#676767',
+			'default' => '#494949',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -59,7 +59,7 @@ function peak_publishing_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'peak_publishing_nav_secondary_text_color',
 		array(
-			'default' => '#cccccc',
+			'default' => '#898989',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -79,7 +79,7 @@ function peak_publishing_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'peak_publishing_text_color',
 		array(
-			'default' => '#676767',
+			'default' => '#494949',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -99,7 +99,7 @@ function peak_publishing_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'peak_publishing_secondary_text_color',
 		array(
-			'default' => '#cccccc',
+			'default' => '#898989',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
@@ -227,10 +227,10 @@ add_action( 'customize_register', 'peak_publishing_customize_register' );
 function peak_publishing_customizer_styles() {
 	$bg_color                 = sanitize_hex_color( '#' . get_background_color() );
 	$nav_bg_color             = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_bg_color', '#ffffff' ) );
-	$nav_text_color           = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_text_color', '#676767' ) );
-	$nav_secondary_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_secondary_text_color', '#cccccc' ) );
-	$text_color               = sanitize_hex_color( get_theme_mod( 'peak_publishing_text_color', '#676767' ) );
-	$text_secondary_color     = sanitize_hex_color( get_theme_mod( 'peak_publishing_secondary_text_color', '#cccccc' ) );
+	$nav_text_color           = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_text_color', '#494949' ) );
+	$nav_secondary_text_color = sanitize_hex_color( get_theme_mod( 'peak_publishing_nav_secondary_text_color', '#898989' ) );
+	$text_color               = sanitize_hex_color( get_theme_mod( 'peak_publishing_text_color', '#494949' ) );
+	$text_secondary_color     = sanitize_hex_color( get_theme_mod( 'peak_publishing_secondary_text_color', '#898989' ) );
 	$font_style               = get_theme_mod( 'peak_publishing_font_style', 'serif' );
 	?>
 	<style>
