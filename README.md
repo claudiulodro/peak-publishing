@@ -1,7 +1,5 @@
 # Peak Publishing
 
-==
-
 Peak Publishing is a full-featured, highly-customizable theme designed for online publishing sites. It is a fast-loading, lightweight theme that stays out of your way so you can focus on writing and publishing content without getting bogged down with technicalities.
 
 Use it for local news, tech news, online magazines, entertainment gossip, longform content, reviews sites, or any other type of content. The customization features make this theme suitable for any type of online publisher. The possibilities are limitless!

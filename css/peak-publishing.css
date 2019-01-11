@@ -420,18 +420,18 @@ footer.site-footer {
     .featured-section.small .article {
       width: calc(50% - 2em); }
 
-  .posts-list-featured-section.full {
+  .posts-list-item.full {
     padding: 0; }
-    .posts-list-featured-section.full.has-thumbnail {
+    .posts-list-item.full.has-thumbnail {
       display: block; }
-      .posts-list-featured-section.full.has-thumbnail .article-info {
+      .posts-list-item.full.has-thumbnail .article-info {
         padding-left: 0;
         width: 100%;
         padding-top: 2em; }
-  .posts-list-featured-section.small {
+  .posts-list-item.small {
     flex-wrap: wrap;
     margin-bottom: 0; }
-    .posts-list-featured-section.small .article {
+    .posts-list-item.small .article {
       width: 100%;
       padding: 0 !important;
       margin-bottom: 2em; }
