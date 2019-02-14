@@ -20,14 +20,14 @@ if ( ! function_exists( 'peak_publishing_setup' ) ) :
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 
-		add_image_size( 'featured-section-full', 1172, 450, true );
-		add_image_size( 'featured-section-large', 782, 340, true );
-		add_image_size( 'featured-section-small', 327, 175, true );
+		add_image_size( 'peak-publishing-featured-section-full', 1172, 450, true );
+		add_image_size( 'peak-publishing-featured-section-large', 782, 340, true );
+		add_image_size( 'peak-publishing-featured-section-small', 327, 175, true );
 
-		add_image_size( 'posts-list-full', 556, 340, true );
-		add_image_size( 'posts-list-small', 350, 217, true );
+		add_image_size( 'peak-publishing-posts-list-full', 556, 340, true );
+		add_image_size( 'peak-publishing-posts-list-small', 350, 217, true );
 
-		add_image_size( 'single', 1172, 600, true );
+		add_image_size( 'peak-publishing-single', 1172, 600, true );
 
 		register_nav_menus(
 			array(

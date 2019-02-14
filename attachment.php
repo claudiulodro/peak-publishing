@@ -20,7 +20,7 @@ get_header();
 					<?php the_title( '<h1 class="title">', '</h1>' ); ?>
 
 					<div class="post-thumbnail">
-						<?php echo wp_get_attachment_image( get_the_ID(), 'single' ); ?>
+						<?php echo wp_get_attachment_image( get_the_ID(), 'peak-publishing-single' ); ?>
 					</div>
 
 					<div class="content">

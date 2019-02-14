@@ -14,7 +14,7 @@ global $wp_query;
 		?>
 		<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-section-small' ); ?></a></div>
+				<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'peak-publishing-featured-section-small' ); ?></a></div>
 			<?php endif ?>
 				<div class="article-info">
 					<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
@@ -29,7 +29,7 @@ global $wp_query;
 		?>
 		<div class="article <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 			<?php if ( has_post_thumbnail() ) : ?>
-				<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-section-small' ); ?></a></div>
+				<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'peak-publishing-featured-section-small' ); ?></a></div>
 			<?php endif ?>
 			<div class="article-info">
 				<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>

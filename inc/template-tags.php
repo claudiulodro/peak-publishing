@@ -81,7 +81,7 @@ if ( ! function_exists( 'peak_publishing_post_thumbnail' ) ) :
 			?>
 
 			<div class="post-thumbnail">
-				<?php the_post_thumbnail( 'single' ); ?>
+				<?php the_post_thumbnail( 'peak-publishing-single' ); ?>
 			</div><!-- .post-thumbnail -->
 
 		<?php else : ?>

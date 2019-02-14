@@ -14,7 +14,7 @@ if ( $wp_query->current_post + 1 !== $wp_query->post_count && have_posts() ) :
 	?>
 	<div class="featured-section full <?php echo has_post_thumbnail() ? 'has-thumbnail' : 'no-thumbnail'; ?>">
 		<?php if ( has_post_thumbnail() ) : ?>
-			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'featured-section-full' ); ?></a></div>
+			<div class="thumbnail"><a href="<?php the_permalink(); ?>"><?php the_post_thumbnail( 'peak-publishing-featured-section-full' ); ?></a></div>
 		<?php endif ?>
 		<div class="article-info">
 			<div class="title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></div>
