@@ -5,7 +5,7 @@ Tags: grid-layout, one-column, two-columns, right-sidebar, custom-background, cu
 
 Requires at least: 4.9
 Tested up to: 5.0
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GNU General Public License v3
 License URI: https://www.gnu.org/licenses/gpl-3.0.en.html
 
@@ -35,7 +35,10 @@ This theme has full WordPress 5.0 support, so you can use all of the latest and 
 
 == Changelog ==
 
-= 1.0 - May 12 2015 =
+= 1.0.1 - February 14 2019 =
+* Prefixed image sizes
+
+= 1.0.0 - January 11 2019 =
 * Initial release
 
 == Credits ==
