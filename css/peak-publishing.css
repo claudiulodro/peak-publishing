@@ -65,18 +65,18 @@ header.site-header {
     z-index: 2; }
     header.site-header #primary-menu li {
       margin-left: 2em; }
-    header.site-header #primary-menu .menu-item-has-children {
+    header.site-header #primary-menu .menu-item-has-children, header.site-header #primary-menu .page_item_has_children {
       position: relative;
       text-decoration: underline; }
-      header.site-header #primary-menu .menu-item-has-children:hover {
+      header.site-header #primary-menu .menu-item-has-children:hover, header.site-header #primary-menu .page_item_has_children:hover {
         text-decoration: none; }
-      header.site-header #primary-menu .menu-item-has-children .sub-menu {
+      header.site-header #primary-menu .menu-item-has-children .sub-menu, header.site-header #primary-menu .menu-item-has-children .children, header.site-header #primary-menu .page_item_has_children .sub-menu, header.site-header #primary-menu .page_item_has_children .children {
         text-align: left;
         background-color: white;
         margin-left: -.5em;
         box-shadow: none;
         padding: .5em; }
-        header.site-header #primary-menu .menu-item-has-children .sub-menu li {
+        header.site-header #primary-menu .menu-item-has-children .sub-menu li, header.site-header #primary-menu .menu-item-has-children .children li, header.site-header #primary-menu .page_item_has_children .sub-menu li, header.site-header #primary-menu .page_item_has_children .children li {
           margin: .5em; }
   header.site-header .menu-toggle {
     border: none;

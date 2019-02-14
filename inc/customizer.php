@@ -241,7 +241,7 @@ function peak_publishing_customizer_styles() {
 			background-color: <?php echo $nav_bg_color; ?>;
 		}
 
-		header.site-header #primary-menu .menu-item-has-children .sub-menu {
+		header.site-header #primary-menu .menu-item-has-children .sub-menu, .page_item_has_children .children {
 			background-color: <?php echo $nav_bg_color; ?>;
 			border: 1px solid <?php echo $nav_secondary_text_color; ?>;
 		}

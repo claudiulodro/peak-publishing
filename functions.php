@@ -5,7 +5,7 @@
  * @package Peak_Publishing
  */
 
-define( 'PEAK_PUBLISHING_VERSION', '1.0.0' );
+define( 'PEAK_PUBLISHING_VERSION', '1.0.1' );
 
 if ( ! function_exists( 'peak_publishing_setup' ) ) :
 	/**

@@ -95,7 +95,7 @@ header.site-header {
 			margin-left: 2em;
 		}
 
-		.menu-item-has-children {
+		.menu-item-has-children, .page_item_has_children {
 			position: relative;
 			text-decoration: underline;
 
@@ -103,7 +103,7 @@ header.site-header {
 				text-decoration: none;
 			}
 
-			.sub-menu {
+			.sub-menu, .children {
 				text-align: left;
 				background-color: white;
 				margin-left: -.5em;

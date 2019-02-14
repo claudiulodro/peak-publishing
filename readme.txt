@@ -37,6 +37,7 @@ This theme has full WordPress 5.0 support, so you can use all of the latest and 
 
 = 1.0.1 - February 14 2019 =
 * Prefixed image sizes
+* Fixed issue with nested menu item styles
 
 = 1.0.0 - January 11 2019 =
 * Initial release
